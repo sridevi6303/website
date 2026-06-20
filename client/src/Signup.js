@@ -18,10 +18,7 @@ function Signup() {
 
     try {
       await axios.post(`${API_URL}/auth/signup`, { email, password });
-      setSuccess('Signup successful. Redirecting to login...');
-      setTimeout(() => {
-        navigate('/login');
-      }, 1000);
+      navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed');
     }
