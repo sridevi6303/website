@@ -10,7 +10,7 @@ Simple MERN app with login and a dashboard task manager.
 2. Create `.env` in `server` with:
    ```env
    PORT=5000
-   MONGO_URI=mongodb://localhost:27017/mern-task
+   MONGO_URI=https://website-mgnc.onrender.com
    JWT_SECRET=your_jwt_secret
    ```
 3. Start the server and client:
