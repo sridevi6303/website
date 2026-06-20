@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Signup from './Signup';
 import Login from './Login';
 import Dashboard from './Dashboard';
 
@@ -24,8 +25,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={token ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />} />
-        <Route path="/dashboard" element={token ? <Dashboard token={token} email={email} onLogout={handleLogout} /> : <Navigate to="/" />} />
+        <Route path="/" element={token ? <Navigate to="/dashboard" /> : <Navigate to="/signup" />} />
+        <Route path="/signup" element={token ? <Navigate to="/dashboard" /> : <Signup />} />
+        <Route path="/login" element={token ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />} />
+        <Route path="/dashboard" element={token ? <Dashboard token={token} email={email} onLogout={handleLogout} /> : <Navigate to="/signup" />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
